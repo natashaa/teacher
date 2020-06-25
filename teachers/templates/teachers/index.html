@@ -1,0 +1,31 @@
+<form action = "" method = "get"> 
+<table>
+    <tr>
+    <td>
+    <label class="inline"><label for="id_last_name_letter">Enter Last Name first letter</label></label>
+    </td>
+    <td>
+        <input type="text" name="last_name_letter" maxlength="1" id="id_last_name_letter">
+    </td> 
+
+    <td>
+    <label class="inline"><label for="id_subject_s">Enter subject</label></label>
+    </td>
+    <td>
+        <input type="text" name="subject_s" maxlength="100"  id="id_subject_s">
+        
+    </td>
+    <td><input type="submit" value="Search"></td>
+</tr> 
+</form>
+</table>
+
+{% if teachers %}
+    <ul>
+    {% for teacher in teachers %}
+        <li><a href="/teachers/{{ teacher.id }}/">{{ teacher.first_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No teachers are available.</p>
+{% endif %}

@@ -1,0 +1,53 @@
+<!-- <h1>{{ teacher.first_name}} {{ teacher.last_name }}</h1>
+<h2>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul> -->
+
+
+<table>
+{% for field in form %}
+<tr>
+    <td>
+    <label class="inline">{{ field.label_tag }}</label>
+    </td>
+    <td>
+        {% if field.field.widget.input_type == 'file' %}
+            <img src={{ field.value.url }} /> 
+        {% else %}
+            {{ field }}
+        {% endif %}
+    </td>
+</tr> 
+{% endfor %}
+ 
+</table>
+
+<!-- <table>
+    {{ form.as_table }}
+</table> -->
+
+
+<!-- <table>
+  <p><strong>Textbook: </strong>{{ posting.textbook.textbook_name }}</p>
+  <p><strong>Condition: </strong>{{ posting.condition }}</p>
+  <p><strong>Price: </strong>{{ posting.price }}</p>
+  <p><strong>Class: </strong>{{ posting.textbook.class_name }}</p>
+  <p><strong>ISBN: </strong>{{ posting.textbook.isbn }}</p>
+  <p><strong>Author: </strong>{{ posting.textbook.author }}</p>
+<h3>Contact Info</h3>
+  <p><strong>User: </strong>{{ posting.user.username }}</p>
+  <p>Button to contact</p>
+
+
+      </div>
+
+      <div class="col-lg-6">
+        {% block content %}
+          <img src="{{ posting.image.url }}">
+          <p>{{ posting.image.url }}</p>
+        {% endblock %}
+      </div>
+    </div> -->
