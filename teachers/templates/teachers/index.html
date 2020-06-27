@@ -1,3 +1,4 @@
+<h2>Directory of Teachers</h2>
 <form action = "" method = "get"> 
 <table>
     <tr>
@@ -29,3 +30,5 @@
 {% else %}
     <p>No teachers are available.</p>
 {% endif %}
+
+<h2><a href="{% url 'importer' %}">Import Teachers</a></h2>

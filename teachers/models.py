@@ -23,18 +23,19 @@ class Teacher(models.Model):
 
 
     def save(self, *args, **kwargs):
-            
-        super(Teacher, self).save(*args, **kwargs)
 
         if not self.id and not self.profile_pic:
-            return           
+            return
 
-        super(Teacher, self).save(*args, **kwargs)
-
+        # restrict subjects to 5
+        if self.subject:
+            self.subject = ','.join(self.subject.split(',')[:MAX_SUBJECTS])
+              
         image = Image.open(self.profile_pic)
 
         image.thumbnail((100, 100))
         image.save(self.profile_pic.path)
+        super(Teacher, self).save(*args, **kwargs)
 
 
 

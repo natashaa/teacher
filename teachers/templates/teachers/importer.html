@@ -1,0 +1,12 @@
+<h2> Import Teachers </h2>
+
+<form action="/teachers/import/" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+    {% for field in import_form %}
+        <div>
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
