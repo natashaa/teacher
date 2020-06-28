@@ -1,10 +1,11 @@
 # Teachers App Set up Instructions
 The teachers app shows index page with all the teachers available.
 You can search by first letter of last name of the teacher or subjects taught.
-You can import teachers by providing a csv file with headers() and a zip file containing the teachers' images (only for logged-in users).
+You can import teachers by providing a csv file with headers(First Name,Last Name,Profile picture,Email Address,Phone Number,Room Number,Subjects taught) and a zip file containing the teachers' images (only for logged-in users).
 You can also see the teacher details by clicking on their first name on index page.
-TODO: develop a login page for users who are not logged in, currently can login via admin panel for staff users
-Admin credentials:
+
+#### TODO: develop a login page for users who are not logged in, currently can login via admin panel for staff users
+##### Admin credentials:
 URL : 'http://127.0.0.1:8000/admin/'
 username: admin
 password: test@1234
