@@ -2,6 +2,9 @@
 
 <form action="/teachers/import/" method="post" enctype="multipart/form-data">
 	{% csrf_token %}
+	{% if error %}
+		{{ error }}
+	{% endif %}
     {% for field in import_form %}
         <div>
             {{ field.errors }}

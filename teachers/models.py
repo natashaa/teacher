@@ -10,6 +10,8 @@ MAX_SUBJECTS = 5
 
 # Create your models here.
 class Teacher(models.Model):
+    """ Model for storing details about the teachers such as name, phone, subjects etc"""
+
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100, null=False, blank=True)
     profile_pic = models.ImageField(upload_to='images', default='/images/default/image.jpeg')
@@ -31,6 +33,7 @@ class Teacher(models.Model):
         if self.subject:
             self.subject = ','.join(self.subject.split(',')[:MAX_SUBJECTS])
               
+        # resizing the image to 100, 100 so it can display properly on profile page
         image = Image.open(self.profile_pic)
 
         image.thumbnail((100, 100))
