@@ -5,6 +5,7 @@ except ImportError:
 from PIL import Image
 
 from django.db import models
+from django.conf import settings
 
 MAX_SUBJECTS = 5
 
@@ -14,7 +15,7 @@ class Teacher(models.Model):
 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100, null=False, blank=True)
-    profile_pic = models.ImageField(upload_to='images', default='/images/default/image.jpeg')
+    profile_pic = models.ImageField(upload_to='images')
     email_address = models.EmailField(max_length=100, unique=True)
     phone = models.CharField(max_length=20)
     room_number = models.CharField(max_length=100)
@@ -32,13 +33,20 @@ class Teacher(models.Model):
         # restrict subjects to 5
         if self.subject:
             self.subject = ','.join(self.subject.split(',')[:MAX_SUBJECTS])
-              
+
+
+        super(Teacher, self).save(*args, **kwargs)
+      
         # resizing the image to 100, 100 so it can display properly on profile page
+        if not self.profile_pic:
+            self.profile_pic = 'images/dummy.jpeg'
+
         image = Image.open(self.profile_pic)
 
         image.thumbnail((100, 100))
-        image.save(self.profile_pic.path)
-        super(Teacher, self).save(*args, **kwargs)
+        image.save('{}/{}'.format(settings.MEDIA_ROOT, self.profile_pic.name))
+
+        
 
 
 
