@@ -32,10 +32,10 @@ pip install -r requirements.txt
 ```
 
 ### Run the migrations
-python manage.py migrate
+```python manage.py migrate```
 
 ### Create django super user (Enter the credentials you wish to create)
-python manage.py createsuperuser
+```python manage.py createsuperuser```
 
 ### Login via admin panel using the credentials created above so import functionality can work fine
 http://127.0.0.1:8000/admin/
