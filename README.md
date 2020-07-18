@@ -24,7 +24,14 @@ cd ~/projects
 git clone https://github.com/natashaa/teacher.git
 ```
 
+### Move to teachers directory
+
+```
+cd teacher
+```
+
 ### install requirements
+
 ```
 pip install -r requirements.txt
 ```
