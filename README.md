@@ -4,12 +4,7 @@ You can search by first letter of last name of the teacher or subjects taught.
 You can import teachers by providing a csv file with headers(First Name,Last Name,Profile picture,Email Address,Phone Number,Room Number,Subjects taught) and a zip file containing the teachers' images (only for logged-in users).
 You can also see the teacher details by clicking on their first name on index page.
 
-#### TODO: develop a login page for users who are not logged in, currently can login via admin panel for staff users
-##### Admin credentials:
-URL : 'http://127.0.0.1:8000/admin/'
-username: admin
-password: test@1234
-
+#### TODO: develop a login page for users who are not logged in. Currently users can login via admin panel for staff users
 
 ### Create new virtualenv
 ```
@@ -35,6 +30,15 @@ git clone https://github.com/natashaa/teacher.git
 ```
 pip install -r requirements.txt
 ```
+
+### Run the migrations
+python manage.py migrate
+
+### Create django super user (Enter the credentials you wish to create)
+python manage.py createsuperuser
+
+### Login via admin panel using the credentials created above so import functionality can work fine
+http://127.0.0.1:8000/admin/
 
 ### run the local server
 ```
